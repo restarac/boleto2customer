@@ -15,3 +15,4 @@
 # ignore local enviroment files
 /db
 /vendor
+/spring
