@@ -5,7 +5,13 @@
       <ul class="nav navbar-nav navbar-right">
         <li><%= link_to "Home",   root_path %></li>
         <li><%= link_to "Help",   help_path %></li>
-        <li><%= link_to "Log in", login_path %></li>
+        <li>
+          <% if signed_in? %>
+            <%= link_to "#{current_user.email}", sign_out_path, method: :delete %>
+          <% else %>
+            <%= link_to t(".sign_in"), sign_in_path %>
+          <% end %>
+        </li>
       </ul>
     </nav>
   </div>

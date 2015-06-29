@@ -9,10 +9,13 @@ gem 'turbolinks',   '2.3.0'
 gem 'jbuilder',     '2.2.3'
 gem 'sdoc',         '0.4.0', group: :doc
 gem 'bootstrap-sass',       '3.2.0.0'
-gem 'slim-rails'
+gem 'slim-rails',   '3.0.1' #html templace
+gem 'clearance',    '1.10.1' #user authenticator
 
 group :development, :test do
-  gem 'sqlite3',     '1.3.9'
+  gem 'sqlite3',     '1.3.9' #banco na pasta db
+  #gem 'factory_girl_rails', '4.5.0'
+  #gem 'rspec'
   gem 'byebug',      '3.4.0'
   gem 'web-console', '2.0.0.beta3'
   gem 'spring',      '1.1.3'
@@ -25,7 +28,6 @@ group :test do
 end
 
 group :production do
-  gem 'pg',           '0.17.1'
+  gem 'pg',           '0.17.1' #postgres
   gem 'rails_12factor', '0.0.2'
 end
-
