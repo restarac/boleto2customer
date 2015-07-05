@@ -1,2 +1,21 @@
-h1 Boletos#new
-p Find me in app/views/boletos/new.html.slim
+section
+  header.page-header
+    .row
+      .span6
+        h1= "Cadastro de Boleto"
+      .span4
+        = link_to(boletos_path, class: "pull-right btn btn-warning") do
+          i.icon.icon-white.icon-back
+          = " Cancelar"
+
+row
+  form 
+  = form_tag boletos_path
+    .controls
+      label for="due_date"
+        = " Data de Vencimento"
+      input-append
+        input#due_date name="due_date" type="date"
+    .controls
+      button.btn.btn-primary type="submit"
+        = "Salvar"

@@ -9,6 +9,9 @@ class BoletosController < ApplicationController
   end
 
   def create
+    binding.pry
+    current_user.boletos.create(boleto_params)
+    redirect_to action: "index"
   end
 
   def show
@@ -17,5 +20,12 @@ class BoletosController < ApplicationController
   def destroy
     Boleto.destroy(params[:id])
     redirect_to action: "index"
+  end
+
+
+  private
+
+  def boleto_params
+    params.permit(:due_date)
   end
 end
