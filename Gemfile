@@ -1,16 +1,22 @@
 source 'https://rubygems.org'
 
 gem 'rails',        '4.2.0'
-gem 'sass-rails',   '5.0.2'
-gem 'uglifier',     '2.5.3'
-gem 'coffee-rails', '4.1.0'
-gem 'jquery-rails', '4.0.3'
-gem 'turbolinks',   '2.3.0'
-gem 'jbuilder',     '2.2.3'
+gem 'sass-rails',   '>=5.0.2'
+gem 'uglifier',     '>=2.5.3'
+gem 'coffee-rails', '>=4.1.0'
+gem 'jquery-rails', '>=4.0.3'
+gem 'turbolinks',   '>=2.3.0'
+gem 'jbuilder',     '>=2.3.0'
 gem 'sdoc',         '0.4.0', group: :doc
-gem 'bootstrap-sass',       '3.2.0.0'
-gem 'slim-rails',   '3.0.1' #html templace
-gem 'clearance',    '1.10.1' #user authenticator
+#Authenticator
+gem 'clearance',    '>=1.10.1'
+#HTML Templates
+gem 'bootstrap-sass', '>=3.2.0.0'
+gem 'slim-rails',   '>=3.0.1' #html templace
+#Google Drive
+gem 'signet',       '0.6.1'
+gem 'google-api-client', '0.8.6'
+gem 'undestroyable', '>=0.0.2'
 
 group :development, :test do
   gem 'sqlite3',     '1.3.9' #banco na pasta db

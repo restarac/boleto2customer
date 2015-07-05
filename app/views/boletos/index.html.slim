@@ -1,0 +1,32 @@
+section
+  header.page-header
+    .row
+      .span6
+        h1= "Boletos disponiveis"
+      .span4
+        = link_to(new_boleto_path, {class: "pull-right btn btn-success"}) do
+          i.icon.icon-white.icon-file
+          = " Cadastrar novo boleto"
+
+row
+  p Lista todos os boletos que foram enviados emails e que estao disponiveis para download e pagamento.
+
+
+.row
+  table.table.table-bordered.table-striped
+    thead
+      tr
+        th= ""
+        th= "Data de Vencimento"
+        th= "E-mail"
+        th= "Enviado"
+    tbody
+      - @boletos.each do |boleto|
+        tr
+          td= link_to boleto_path(boleto), data: {confirm: "Deseja realmente excluir esse Boleto?"}, class: "btn btn-danger", method: :delete do
+            i.icon.icon-white.icon-remove
+            = " Excluir"
+
+          td= boleto.due_date.strftime("%d/%m/%Y")
+          td= boleto.user.email
+          td= "Nao"
