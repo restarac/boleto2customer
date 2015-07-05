@@ -13,17 +13,42 @@ row
 
 
 .row
+  h2= "Boletos Recebidos"
   table.table.table-bordered.table-striped
     thead
       tr
         th= ""
         th= "Data de Vencimento"
         th= "E-mail"
-        th= "Enviado"
+        th= "Origem de"
     tbody
-      - @boletos.each do |boleto|
+      - @boletos_receiveid.each do |boleto|
         tr
-          - if false 
+          - if boleto.can_delete?
+            td= link_to boleto_path(boleto), data: {confirm: "Deseja realmente excluir esse Boleto?"}, class: "btn btn-danger", method: :delete do
+              i.icon.icon-white.icon-remove
+              = " Excluir"
+          - else
+            td= "Excluir desabilitado"
+
+          td= boleto.due_date.strftime("%d/%m/%Y")
+          td= boleto.sender_origin_email
+          td= "Nao"
+
+
+.row
+  h2= "Boletos Enviados"
+  table.table.table-bordered.table-striped
+    thead
+      tr
+        th= ""
+        th= "Data de Vencimento"
+        th= "E-mail"
+        th= "Enviado para"
+    tbody
+      - @boletos_sent.each do |boleto|
+        tr
+          - if boleto.can_delete?
             td= link_to boleto_path(boleto), data: {confirm: "Deseja realmente excluir esse Boleto?"}, class: "btn btn-danger", method: :delete do
               i.icon.icon-white.icon-remove
               = " Excluir"
