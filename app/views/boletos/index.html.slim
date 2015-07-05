@@ -23,9 +23,12 @@ row
     tbody
       - @boletos.each do |boleto|
         tr
-          td= link_to boleto_path(boleto), data: {confirm: "Deseja realmente excluir esse Boleto?"}, class: "btn btn-danger", method: :delete do
-            i.icon.icon-white.icon-remove
-            = " Excluir"
+          - if false 
+            td= link_to boleto_path(boleto), data: {confirm: "Deseja realmente excluir esse Boleto?"}, class: "btn btn-danger", method: :delete do
+              i.icon.icon-white.icon-remove
+              = " Excluir"
+          - else
+            td= "Excluir desabilitado"
 
           td= boleto.due_date.strftime("%d/%m/%Y")
           td= boleto.user.email
