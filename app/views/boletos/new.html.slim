@@ -16,6 +16,12 @@ row
         = " Data de Vencimento"
       input-append
         input#due_date name="due_date" type="date" class="datepicker"
+
+    .controls
+      select name="id"
+        - @sendable_users.each do |user|
+          option value=user.id = user.email
+
     .controls
       button.btn.btn-primary type="submit"
         = "Salvar"

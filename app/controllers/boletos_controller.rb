@@ -6,10 +6,12 @@ class BoletosController < ApplicationController
   end
 
   def new
+    @sendable_users = current_user.sendable_customers
   end
 
   def create
-    current_user.boletos.create(boleto_params)
+    sendable_user = User.find(id)
+    sendable_user.boletos.create(boleto_params)
     redirect_to action: "index"
   end
 

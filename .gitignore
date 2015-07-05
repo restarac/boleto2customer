@@ -5,9 +5,10 @@
 /log/*
 !/log/.keep
 /tmp
+/db/*.rb
+/db/*.sqlite3
 
 # ignore local enviroment files
-/db
 /vendor
 /spring
 
