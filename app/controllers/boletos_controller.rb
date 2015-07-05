@@ -9,7 +9,6 @@ class BoletosController < ApplicationController
   end
 
   def create
-    binding.pry
     current_user.boletos.create(boleto_params)
     redirect_to action: "index"
   end

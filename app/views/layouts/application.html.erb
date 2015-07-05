@@ -2,9 +2,12 @@
 <html>
   <head>
     <title><%= full_title(yield(:title)) %></title>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
     <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
     <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
     <%= csrf_meta_tags %>
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
     <%= render 'layouts/shim' %>
   </head>
   <body>
@@ -14,6 +17,11 @@
       <%= yield %>
       <%= render 'layouts/footer' %>
     </div>
+    <script>
+      $(function() {
+        $( ".datepicker" ).datepicker();
+      });
+    </script>
   </body>
 </html>
 
