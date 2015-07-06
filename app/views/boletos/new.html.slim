@@ -1,0 +1,28 @@
+section
+  header.page-header
+    .row
+      .span6
+        h1= "Cadastro de Boleto"
+      .span4
+        = link_to(boletos_path, class: "pull-right btn btn-warning") do
+          i.icon.icon-white.icon-back
+          = " Cancelar"
+
+row
+  form 
+  = form_tag boletos_path
+    .controls
+      label for="due_date"
+        = " Data de Vencimento"
+      input-append
+        input#due_date name="boleto[due_date]" type="date" class="datepicker"
+
+    .controls
+      select name="user[id]"
+        - @sendable_users.each do |user|
+          option value=user.id = user.email
+
+    .controls
+      input#sender_origin_email name="boleto[sender_origin_email]" type="hidden" value=current_user.email
+      button.btn.btn-primary type="submit"
+        = "Salvar"

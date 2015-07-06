@@ -1,0 +1,16 @@
+# Ignore bundler config.
+/.bundle
+
+# Ignore all logfiles and tempfiles.
+/log/*
+!/log/.keep
+/tmp
+/db/*.rb
+/db/*.sqlite3
+
+# ignore local enviroment files
+/vendor
+/spring
+
+#ignore credentials
+*_secrets.json
