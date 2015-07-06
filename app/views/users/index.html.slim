@@ -1,0 +1,29 @@
+section
+  header.page-header
+    .row
+      .span6
+        h1= "Hack para habilitar emissao..."
+      .span4
+        = link_to(boletos_path, class: "pull-right btn btn-warning") do
+          i.icon.icon-white.icon-back
+          = " Cancelar"
+
+row
+  form 
+  = form_tag users_hack_path, method: :put
+    .controls
+      label for="sender_origin_id"
+        = "Usuario "
+      select#sender_origin_id name="sender_origin_id"
+        - @users.each do |user|
+          option value=user.id = user.email
+    .controls
+      label for="user_id"
+        = "Vera o  "
+      select#user_id name="user_id"
+        - @users.each do |user|
+          option value=user.id = user.email
+
+    .controls
+      button.btn.btn-primary type="submit"
+        = "Salvar"

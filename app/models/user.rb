@@ -8,12 +8,7 @@ class User < ActiveRecord::Base
   #Acts like `subordinates`
   has_many :sendable_customers, class_name: "User", foreign_key: "sender_user_id" 
   #Acts like `manager`
-  belongs_to :sender_origin, class_name: "User"
-
-  def send_boleto from_user, due_date, sender_origin_email
-    sendable_user = User.find(to_user)
-    sendable_user.boletos.create(due_date: due_date, sender_origin_email: current_user.email)
-  end
+  belongs_to :sender_origin, class_name: "User", foreign_key: "sender_user_id" 
 
   def avatar_url
     hash = Digest::MD5.hexdigest(normalize_email)     

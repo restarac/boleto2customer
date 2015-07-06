@@ -7,7 +7,8 @@ Rails.application.routes.draw do
   get    'about'   => 'static_pages#about'
   get    'contact' => 'static_pages#contact'
   
-  
+  get    'users_hack' => 'users#index'
+  put    'users_hack' => 'users#update'
   
   #Authentication
   resources :passwords, controller: 'passwords', only: [:create, :new]
