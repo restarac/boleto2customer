@@ -1,5 +1,5 @@
-# boleto-to-custumer
-Projeto para visualizacao e gerencimento dos boletos gerados entre uma empresa e um cliente.
+# boleto2custumer
+Projeto para visualizacao e gerencimento dos boletos gerados entre uma empresa(usuario cadastrado) e um cliente(usuario cadastrado).
 
 - Cadastro simples
 - Para o envio é necessário que o recebedor do boleto escolha o usuario de quem receberá seus boletos
