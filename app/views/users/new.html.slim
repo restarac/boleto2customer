@@ -1,8 +1,6 @@
-#clearance.sign-up
-  h2= t(".title")
-  = form_for @user do |form|
-    = render partial: '/users/form', object: form
-    .submit-field
-      = form.submit
+.row
+  .col-md-4.col-md-offset-4
+    h2= t(".title")
+    = render partial: '/users/form'
     .other-links
-      = link_to t(".sign_in"), sign_in_path
+      = link_to t(".sign_in"), sign_in_path, class: 'btn btn-default'

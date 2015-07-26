@@ -1,4 +1,4 @@
-= form_for @user do |form|
+= form_for :session, url: session_path do |form|
   .form-group
     = form.label :email
     = form.text_field :email, type: 'email', class: 'form-control', placeholder: 'seuemail@boleto2customer.com'
