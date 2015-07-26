@@ -2,27 +2,23 @@ section
   header.page-header
     .row
       .span6
-        h1= "Cadastro de Boleto"
+        h1= 'Cadastro de Boleto'
       .span4
-        = link_to(boletos_path, class: "pull-right btn btn-warning") do
+        = link_to(boletos_path, class: 'pull-right btn btn-warning') do
           i.icon.icon-white.icon-back
-          = " Cancelar"
-
-row
-  form 
-  = form_tag boletos_path
-    .controls
-      label for="due_date"
-        = " Data de Vencimento"
-      input-append
-        input#due_date name="boleto[due_date]" type="date" class="datepicker"
-
-    .controls
-      select name="user[id]"
-        - @sendable_users.each do |user|
-          option value=user.id = user.email
-
-    .controls
-      input#sender_origin_email name="boleto[sender_origin_email]" type="hidden" value=current_user.email
-      button.btn.btn-primary type="submit"
-        = "Salvar"
+          = ' Cancelar'
+  .row
+    .col-md-6.col-md-offset-3
+      = form_for :boleto, url: boletos_path do |form|
+        .form-group
+          = form.label :due_date
+          = form.text_field :due_date, name:'boleto[due_date]', class:'form-control datepicker', placeholder: 'Mes/Dia/Ano'
+        .form-group
+          = form.label :user
+          = form.collection_select :user, @sendable_users, :id, :email, {prompt: "#{@sendable_users.empty? ? 'Habilite um' : 'Selecione o'} destinatario"}, {class:'form-control'}
+        .form-group
+          = form.label :barcode
+          = form.text_field :barcode, name:'boleto[barcode]', class:'form-control', placeholder: 'Codigo de barras'
+        .form-group
+          = form.hidden_field :sender_origin_email, name:'boleto[sender_origin_email]', value:current_user.email
+          = form.submit value: 'Salvar', class: 'btn btn-lg btn-primary btn-block'

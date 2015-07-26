@@ -1,0 +1,9 @@
+= form_for @user do |form|
+  .form-group
+    = form.label :email
+    = form.text_field :email, type: 'email', class: 'form-control', placeholder: 'seuemail@boleto2customer.com'
+  .form-group
+    = form.label :password
+    = form.password_field :password, class: 'form-control', placeholder: '******'
+  .form-group
+    = form.submit class: 'btn btn-lg btn-primary btn-block'

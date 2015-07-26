@@ -1,0 +1,8 @@
+.row
+  .col-md-4.col-md-offset-4
+    h2= t(".title")
+    = render partial: '/sessions/form'
+    .other-links
+      - if Clearance.configuration.allow_sign_up?
+        = link_to t(".sign_up"), sign_up_path, class: 'btn btn-default'
+      = link_to t(".forgot_password"), new_password_path, class: 'btn btn-default'

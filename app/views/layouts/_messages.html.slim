@@ -1,0 +1,7 @@
+- flash.each do |key, value|
+  - if key == 'sucess'
+    .alert.alert-success role='alert' data-key='#{key}'
+      = value
+  - if key == 'notice'
+    .alert.alert-danger role='alert' data-key='#{key}'
+      = value

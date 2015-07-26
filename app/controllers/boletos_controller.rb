@@ -26,6 +26,6 @@ class BoletosController < ApplicationController
 
   private
   def boleto_params
-    params.require(:boleto).permit(:due_date, :sender_origin_email)
+    params.require(:boleto).permit(:due_date, :sender_origin_email, :barcode)
   end
 end

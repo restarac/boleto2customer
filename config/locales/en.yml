@@ -21,3 +21,7 @@
 
 en:
   hello: "Hello world"
+
+  flashes:
+    user:
+      failure_after_create: "Bad email or password." 
