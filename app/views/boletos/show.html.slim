@@ -1,0 +1,27 @@
+section
+  header.page-header
+    .row
+      .span6
+        h1= "Visualizando o boleto"
+      .span4
+        = link_to(boletos_path, class: "pull-right btn btn-warning") do
+          i.icon.icon-white.icon-back
+          = " voltar ao dashboard"
+
+  .panel.panel-default
+    .panel-body
+      .form-group
+        label ="Destino"
+        p.form-control-static =@boleto.sender_email
+
+      .form-group
+        label ="Origem"
+        p.form-control-static =@boleto.origin_email
+
+      .form-group
+        label ="Data Vencimento"
+        p.form-control-static =@boleto.formated_due_date
+
+      .form-group
+        label ="Codigo de Barras"
+        p.form-control-static =@boleto.barcode

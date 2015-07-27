@@ -11,12 +11,13 @@ class BoletosController < ApplicationController
   end
 
   def create
-    sendable_user = User.find(params[:user][:id])
+    sendable_user = User.find(params[:boleto][:user])
     sendable_user.boletos.create(boleto_params)
     redirect_to action: "index"
   end
 
   def show
+    @boleto = Boleto.find_for_this_user(current_user, params[:id]).first
   end
 
   def destroy
