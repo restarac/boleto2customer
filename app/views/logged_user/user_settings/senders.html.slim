@@ -1,0 +1,17 @@
+= form_tag user_setting_senders_path, method: :put 
+  .form-group
+    label#sender_origin_id = "Aceitar boletos do: "
+    select#sender_origin_id name="sender_origin_id" class="form-control"
+      option = "selecione o usuario"
+      - @users.each do |user|
+        option value=user.id 
+          = user.email
+  .form-group
+    label = "Aceita atualmente do: "
+    p.form-control-static 
+      mark
+        = current_user.has_sender? ? current_user.sender_email : "Ninguem selecionado ainda..."
+  .form-group
+    input type="submit" value="Permitir!" class="btn btn-lg btn-success btn-block"
+
+

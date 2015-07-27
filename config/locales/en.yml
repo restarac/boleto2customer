@@ -24,4 +24,5 @@ en:
 
   flashes:
     user:
-      failure_after_create: "Bad email or password." 
+      failure_after_create: "Bad email or password."
+      empty: "Se quizer alterar, por favor selecione um usuario."
