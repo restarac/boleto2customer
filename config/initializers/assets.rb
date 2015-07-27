@@ -8,5 +8,7 @@ Rails.application.config.assets.version = '1.0'
 
 # Precompile additional assets.
 # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
-Rails.application.config.assets.precompile += ['*.js', '*.css']
+Rails.application.config.assets.precompile << /(^[^_\/]|\/[^_])[^\/]*$/
+Rails.application.config.assets.precompile << '*.coffee'
+Rails.application.config.assets.precompile << '*.scss'
 # Rails.application.config.assets.precompile += %w( boletos.css )
