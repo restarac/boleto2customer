@@ -1,13 +1,36 @@
 body
-  header.navbar.navbar-fixed-top.navbar-inverse
-    .container
-      = link_to "Boleto 2 Custumer", root_path, id: "logo"
-      nav
-        ul.nav.navbar-nav.navbar-right
-          li= link_to "Home",   root_path
-          li= link_to "Ajuda",   help_path
-          li
+  header
+    nav.navbar.navbar-fixed-top.navbar-inverse
+      .container
+        <!-- Brand and toggle get grouped for better mobile display -->
+        .navbar-header
+          = link_to "Boleto 2 Custumer", root_path, id: "logo"
+          button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false"
+            span.sr-only
+              = "Toggle navigation"
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+        
+        .collapse.navbar-collapse
+          ul.nav.navbar-nav.navbar-right
             - if signed_in?
-              = link_to "#{current_user.email}", sign_out_path, method: :delete
+              li= link_to "Dashboard", boletos_path
+              li.dropdown
+                a.dropdown-toggle data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"
+                  = current_user.email.html_safe.truncate(40)
+                  span.caret
+                ul.dropdown-menu
+                  li
+                    = link_to "Configuracao", user_setting_senders_path
+                  li.divider role="separator"
+                  li
+                    = link_to "Sign out", sign_out_path, {method: :delete}
             - else
-              = link_to t(".sign_in"), sign_in_path
+              li= link_to "Home", root_path
+              li= link_to "Ajuda", help_path
+              li
+                = link_to t(".sign_in"), sign_in_path
+
+
+

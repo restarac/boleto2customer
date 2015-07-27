@@ -1,0 +1,24 @@
+doctype html
+html
+  head
+    = render 'layouts/imports'
+    title=full_title(yield(:title))
+  body
+    = render 'layouts/header'    
+    section.container
+      = render 'layouts/messages'
+      header.page-header
+        .row
+          .span6
+            h1= "Configuracao do usuario"
+          .span4
+            = link_to(boletos_path, class: "pull-right btn btn-warning") do
+              i.icon.icon-white.icon-back
+              = " voltar ao dashboard"
+        .row
+          .col-md-3
+            = render 'layouts/logged_user/user_settings_menu'
+          .col-md-6
+            = yield
+            
+      = render 'layouts/footer'

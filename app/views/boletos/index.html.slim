@@ -19,8 +19,7 @@ row
       tr
         th= ""
         th= "Data de Vencimento"
-        th= "E-mail"
-        th= "Origem de"
+        th= "Origem do e-mail"
     tbody
       - @boletos_receiveid.each do |boleto|
         tr
@@ -29,11 +28,11 @@ row
               i.icon.icon-white.icon-remove
               = " Excluir"
           - else
-            td= "Excluir desabilitado"
+              = link_to boleto_path(boleto.id), class: "btn btn-default btn-sm"
+                span.glyphicon.glyphicon-modal-window
 
-          td= boleto.due_date.strftime("%d/%m/%Y")
-          td= boleto.sender_origin_email
-          td= "Nao"
+          td= boleto.formated_due_date
+          td= boleto.origin_email
 
 
 .row
@@ -43,18 +42,19 @@ row
       tr
         th= ""
         th= "Data de Vencimento"
-        th= "E-mail"
-        th= "Enviado para"
+        th= "Enviado para o email"
     tbody
       - @boletos_sent.each do |boleto|
         tr
           - if boleto.can_delete?
-            td= link_to boleto_path(boleto), data: {confirm: "Deseja realmente excluir esse Boleto?"}, class: "btn btn-danger", method: :delete do
+            td
+              = link_to boleto_path(boleto), data: {confirm: "Deseja realmente excluir esse Boleto?"}, class: "btn btn-danger", method: :delete do
               i.icon.icon-white.icon-remove
               = " Excluir"
           - else
-            td= "Excluir desabilitado"
+            td
+              = link_to boleto_path(boleto.id), class: "btn btn-default btn-sm"
+                span.glyphicon.glyphicon-modal-window
 
-          td= boleto.due_date.strftime("%d/%m/%Y")
-          td= boleto.user.email
-          td= "Nao"
+          td= boleto.formated_due_date
+          td= boleto.sender_email
