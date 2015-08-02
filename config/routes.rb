@@ -9,22 +9,20 @@ Rails.application.routes.draw do
   
 
   #Authentication
-  scope module: 'logged_user' do
-    resources :passwords, controller: 'passwords', only: [:create, :new]
-    resource :session, controller: 'sessions', only: [:create]
+  resources :passwords, controller: 'passwords', only: [:create, :new]
+  resource :session, controller: 'sessions', only: [:create]
 
-    resources :users, controller: 'users', only: [:create] do
-      resource :password,
-        controller: 'passwords',
-        only: [:create, :edit, :update]
-    end
-
-    get 'sign_in' => 'sessions#new'
-    delete 'sign_out' => 'sessions#destroy'
-    get 'sign_up' => 'users#new'
-
-    get 'user_setting_senders' => 'user_settings#senders'
-    put 'user_setting_senders' => 'user_settings#update_senders'
+  resources :users, controller: 'users', only: [:create] do
+    resource :password,
+      controller: 'passwords',
+      only: [:create, :edit, :update]
   end
+
+  get 'sign_in' => 'sessions#new'
+  delete 'sign_out' => 'sessions#destroy'
+  get 'sign_up' => 'users#new'
+
+  get 'user_setting_senders' => 'user_settings#senders'
+  put 'user_setting_senders' => 'user_settings#update_senders'
 
 end
